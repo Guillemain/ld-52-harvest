@@ -8,7 +8,6 @@ export var max_turn_angle = 45
 export var gravity = 0.98
 export var max_fall_speed = 30
 
-onready var cam = $CamBase
 onready var mesh = $Mesh
 onready var mesh_base_angle = mesh.rotation_degrees.y
 
