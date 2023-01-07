@@ -6,19 +6,20 @@
 [node name="Spatial" type="Spatial"]
 
 [node name="Spatial" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0710931, -0.25018 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.12132, -0.1255 )
 spring_path = NodePath("../hep/Springs")
-recall_force = 2.0
-drag_factor = 0.9
-current_speed = Vector3( 10, 20, 0 )
+recall_force = 1.5
+drag_factor = 0.95
+current_speed = Vector3( 0.5, 1, 0 )
 
 [node name="hep" parent="." instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.225583, 0 )
 
 [node name="Springs" parent="hep" index="1"]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.196027, 0.192003 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0176626, 0.10786 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.617228, 0, -0.786784, 0, 1, 0, 0.786784, 0, -0.617228, -3.81805, 1.01734, -3.44073 )
+transform = Transform( -0.638011, 0.543108, -0.545872, 0.0224827, 0.721736, 0.691803, 0.769699, 0.429105, -0.472686, -1.32545, 1.34878, -1.01137 )
+fov = 55.7921
 
 [editable path="hep"]
