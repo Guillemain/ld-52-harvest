@@ -7,7 +7,6 @@ export var gravity = 0.98
 export var max_fall_speed = 30
 
 onready var cam = $CamBase
-onready var mesh = $CSGBox
 
 var total_time = 0
 
