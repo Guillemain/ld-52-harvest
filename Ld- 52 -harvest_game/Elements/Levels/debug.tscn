@@ -8,6 +8,7 @@
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -95 )
 move_forward_speed = 100
+acceleration_side = 0.5
 
 [node name="world" type="Spatial" parent="."]
 
@@ -37,5 +38,65 @@ transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 100, -11, 2, 0 )
 skeleton = NodePath("../../..")
 
 [node name="Cube3" parent="world/straight2" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 100, 11, 2, 0 )
+skeleton = NodePath("../../..")
+
+[node name="straight3" type="Spatial" parent="world"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 400 )
+
+[node name="Cube" parent="world/straight3" instance=ExtResource( 2 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 100, 0, -1, 0 )
+skeleton = NodePath("../../..")
+
+[node name="Cube2" parent="world/straight3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 100, -11, 2, 0 )
+skeleton = NodePath("../../..")
+
+[node name="Cube3" parent="world/straight3" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 100, 11, 2, 0 )
+skeleton = NodePath("../../..")
+
+[node name="straight4" type="Spatial" parent="world"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 600 )
+
+[node name="Cube" parent="world/straight4" instance=ExtResource( 2 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 100, 0, -1, 0 )
+skeleton = NodePath("../../..")
+
+[node name="Cube2" parent="world/straight4" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 100, -11, 2, 0 )
+skeleton = NodePath("../../..")
+
+[node name="Cube3" parent="world/straight4" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 100, 11, 2, 0 )
+skeleton = NodePath("../../..")
+
+[node name="straight5" type="Spatial" parent="world"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 800 )
+
+[node name="Cube" parent="world/straight5" instance=ExtResource( 2 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 100, 0, -1, 0 )
+skeleton = NodePath("../../..")
+
+[node name="Cube2" parent="world/straight5" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 100, -11, 2, 0 )
+skeleton = NodePath("../../..")
+
+[node name="Cube3" parent="world/straight5" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 100, 11, 2, 0 )
+skeleton = NodePath("../../..")
+
+[node name="straight6" type="Spatial" parent="world"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 1000 )
+
+[node name="Cube" parent="world/straight6" instance=ExtResource( 2 )]
+transform = Transform( 10, 0, 0, 0, 1, 0, 0, 0, 100, 0, -1, 0 )
+skeleton = NodePath("../../..")
+
+[node name="Cube2" parent="world/straight6" instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 100, -11, 2, 0 )
+skeleton = NodePath("../../..")
+
+[node name="Cube3" parent="world/straight6" instance=ExtResource( 2 )]
 transform = Transform( 1, 0, 0, 0, 2, 0, 0, 0, 100, 11, 2, 0 )
 skeleton = NodePath("../../..")
