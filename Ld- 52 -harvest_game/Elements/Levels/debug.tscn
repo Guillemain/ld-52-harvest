@@ -7,8 +7,7 @@
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2, -95 )
-move_speed = 100
-acceleration = 20
+move_forward_speed = 100
 
 [node name="world" type="Spatial" parent="."]
 
