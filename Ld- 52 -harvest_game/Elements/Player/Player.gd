@@ -4,13 +4,18 @@ export var move_forward_speed = 20
 export var move_side_speed = 20
 export var acceleration_forward = 10
 export var acceleration_side = 10.0
+export var max_turn_angle = 45
 export var gravity = 0.98
 export var max_fall_speed = 30
 
 onready var cam = $CamBase
+onready var mesh = $Mesh
+onready var mesh_base_angle = mesh.rotation_degrees.y
 
 var total_time = 0
 var total_time_turn = 0
+var goal_angle = 0
+var goal_x = 0
 
 var y_velo = 0
 
@@ -35,7 +40,7 @@ func _physics_process(delta):
 		y_velo = -max_fall_speed
 
 func calculate_forward_vector() -> Vector3:
-	var move_forward_vec := Vector3()
+	var move_forward_vec := Vector3.ZERO
 	
 	# Auto move forward
 	move_forward_vec.z += 1
@@ -50,23 +55,27 @@ func calculate_forward_vector() -> Vector3:
 	return move_forward_vec
 
 func calculate_side_vector(delta) -> Vector3:
-	var move_side_vec := Vector3()
+	var move_side_vec := Vector3.ZERO
 	
-	# Direction calculation
 	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
 		total_time_turn = 0
 	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
 		total_time_turn += delta
 		if Input.is_action_pressed("move_left"):
-			move_side_vec.x += 1
+			goal_x = 1
 		if Input.is_action_pressed("move_right"):
-			move_side_vec.x -= 1
+			goal_x = -1
+	else:
+		goal_x = lerp(goal_x, 0, 0.1)
 	
-	move_side_vec = move_side_vec.normalized()
 	var acceleration_threshold = clamp(total_time_turn / acceleration_side, 0, 1)
-	var current_speed = move_side_speed * acceleration_threshold
+	move_side_vec.x = goal_x
+	rotate_mesh(move_side_vec.x, acceleration_threshold)
 	move_side_vec *= move_side_speed * acceleration_threshold
-	
-	print(current_speed)
-	
 	return move_side_vec
+
+# Slowly rotate mesh to follow the turn, with interpolation to smoothly get back to original rotation
+func rotate_mesh(side, acceleration_threshold):
+	goal_angle = max_turn_angle * acceleration_threshold * side
+	mesh.rotation_degrees.y = mesh_base_angle + goal_angle
+	#mesh.rotation_degrees.y = lerp(mesh.rotation_degrees.y, mesh_base_angle + goal_angle, 0.1)
