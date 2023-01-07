@@ -1,7 +1,8 @@
-[gd_scene load_steps=3 format=2]
+[gd_scene load_steps=4 format=2]
 
 [ext_resource path="res://Elements/Tractor/chassiAvecSpring.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Elements/Tractor/RouesAvecSpring.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Elements/Radis/Exportset/radis.glb" type="PackedScene" id=3]
 
 [node name="Spatial" type="Spatial"]
 
@@ -19,7 +20,11 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.225583, 0 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.0176626, 0.10786 )
 
 [node name="Camera" type="Camera" parent="."]
-transform = Transform( -0.638011, 0.543108, -0.545872, 0.0224827, 0.721736, 0.691803, 0.769699, 0.429105, -0.472686, -1.32545, 1.34878, -1.01137 )
-fov = 55.7921
+transform = Transform( -0.00710343, 0, 0.999975, 0, 1, 0, -0.999975, 0, -0.00710343, 2.69885, 1.51544, -1.62347 )
+fov = 83.4837
+
+[node name="radis" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.477737, 0, 0.147537, 0, 0.5, 0, -0.147537, 0, -0.477737, 0.0386682, 0.350121, -2.60419 )
 
 [editable path="hep"]
+[editable path="radis"]
