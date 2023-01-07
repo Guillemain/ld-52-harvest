@@ -11,13 +11,8 @@ config_version=4
 [application]
 
 config/name="Ld- 52 -harvest_game"
-run/main_scene="res://Elements/Levels/debug.tscn"
+run/main_scene="res://Elements/Levels/Level1.tscn"
 config/icon="res://icon.png"
-
-[display]
-
-window/size/width=720
-window/size/height=300
 
 [gui]
 

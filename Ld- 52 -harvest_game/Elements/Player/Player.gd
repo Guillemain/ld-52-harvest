@@ -27,7 +27,6 @@ func _physics_process(delta):
 	movement_vector = movement_vector.rotated(Vector3(0, 1, 0), rotation.y)
 	
 	current_speed = movement_vector.length()
-	#print(current_speed)
 	
 	# Apply gravity
 	movement_vector.y = y_velo
@@ -89,5 +88,10 @@ func _on_TriggerShape_area_entered(area: Area):
 	if area.is_in_group("jump20"):
 		y_velo = 10
 	if area.is_in_group("obstacle50"):
-		#print(acceleration_forward / 2.0)
-		total_time -= acceleration_forward / 2.0
+		total_time -= acceleration_forward * 0.5
+	if area.is_in_group("obstacle35"):
+		total_time -= acceleration_forward * 0.35
+	if area.is_in_group("obstacle20"):
+		total_time -= acceleration_forward * 0.2
+	if total_time < 0:
+		total_time = 0
