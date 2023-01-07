@@ -52,6 +52,7 @@ func calculate_forward_vector() -> Vector3:
 	
 	# Increase acceleration_forward threshold every frame but limit it to 1
 	var acceleration_threshold = clamp(total_time / acceleration_forward, 0, 1)
+
 	# Calculate speed
 	move_forward_vec *= move_forward_speed * acceleration_threshold
 	
@@ -86,4 +87,7 @@ func rotate_mesh(side, acceleration_threshold):
 
 func _on_TriggerShape_area_entered(area: Area):
 	if area.is_in_group("jump20"):
-		y_velo = 10#20.0 / 90.0 * current_speed
+		y_velo = 10
+	if area.is_in_group("obstacle50"):
+		#print(acceleration_forward / 2.0)
+		total_time -= acceleration_forward / 2.0
