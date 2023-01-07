@@ -15,6 +15,7 @@ var total_time = 0
 var total_time_turn = 0
 var goal_angle = 0
 var goal_x = 0
+var current_speed = 0
 
 var y_velo = 0
 
@@ -24,6 +25,9 @@ func _physics_process(delta):
 	
 	#Apply rotation (maybe not necessary since we will probably only go straight)
 	movement_vector = movement_vector.rotated(Vector3(0, 1, 0), rotation.y)
+	
+	current_speed = movement_vector.length()
+	#print(current_speed)
 	
 	# Apply gravity
 	movement_vector.y = y_velo
@@ -78,3 +82,8 @@ func rotate_mesh(side, acceleration_threshold):
 	goal_angle = max_turn_angle * acceleration_threshold * side
 	mesh.rotation_degrees.y = mesh_base_angle + goal_angle
 	#mesh.rotation_degrees.y = lerp(mesh.rotation_degrees.y, mesh_base_angle + goal_angle, 0.1)
+
+
+func _on_TriggerShape_area_entered(area: Area):
+	if area.is_in_group("jump20"):
+		y_velo = 10#20.0 / 90.0 * current_speed
