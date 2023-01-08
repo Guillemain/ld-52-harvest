@@ -26,7 +26,7 @@ func _process(delta):
 			queue_free()
 
 func _on_area_entered(collided_area: Area):
-	if collided_area.is_in_group("player"):
+	if collided_area.is_in_group("player") or collided_area.is_in_group("AI"):
 		broken = true
 		area.set_deferred("monitoring", false)
 		area.set_deferred("monitorable", false)

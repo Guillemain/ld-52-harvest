@@ -8,8 +8,7 @@ export var max_turn_angle = 45
 export var gravity = 0.98
 export var max_fall_speed = 30
 
-onready var mesh = $Mesh
-onready var mesh_base_angle = mesh.rotation_degrees.y
+onready var anim = $radis/AnimationPlayer
 
 var total_time = 0
 var total_time_turn = 0
@@ -18,6 +17,9 @@ var goal_x = 0
 var current_speed = 0
 
 var y_velo = 0
+
+func _ready():
+	anim.play("Run_loop")
 
 func _physics_process(delta):
 	var movement_vector := calculate_forward_vector() + calculate_side_vector(delta)
@@ -60,39 +62,22 @@ func calculate_forward_vector() -> Vector3:
 func calculate_side_vector(delta) -> Vector3:
 	var move_side_vec := Vector3.ZERO
 	
-	if Input.is_action_just_pressed("move_left") or Input.is_action_just_pressed("move_right"):
-		total_time_turn = 0
-	if Input.is_action_pressed("move_left") or Input.is_action_pressed("move_right"):
-		total_time_turn += delta
-		if Input.is_action_pressed("move_left"):
-			goal_x = 1
-		if Input.is_action_pressed("move_right"):
-			goal_x = -1
-	else:
-		goal_x = lerp(goal_x, 0, 0.1)
+	if translation.x < goal_x - 0.2:
+		move_side_vec.x = 0.5
+	if translation.x > goal_x + 0.2:
+		move_side_vec.x = -0.5
 	
-	var acceleration_threshold = clamp(total_time_turn / acceleration_side, 0, 1)
-	move_side_vec.x = goal_x
-	rotate_mesh(move_side_vec.x, acceleration_threshold)
-	move_side_vec *= move_side_speed * acceleration_threshold
+	move_side_vec *= move_side_speed
 	return move_side_vec
-
-# Slowly rotate mesh to follow the turn, with interpolation to smoothly get back to original rotation
-func rotate_mesh(side, acceleration_threshold):
-	goal_angle = max_turn_angle * acceleration_threshold * side
-	mesh.rotation_degrees.y = mesh_base_angle + goal_angle
-	#mesh.rotation_degrees.y = lerp(mesh.rotation_degrees.y, mesh_base_angle + goal_angle, 0.1)
-
 
 func _on_TriggerShape_area_entered(area: Area):
 	if area.is_in_group("jump20"):
 		y_velo = 10
 	if area.is_in_group("obstacle50"):
-		print("oui")
-		total_time -= acceleration_forward * 0.5
+		total_time -= acceleration_forward * 0.4
 	if area.is_in_group("obstacle35"):
-		total_time -= acceleration_forward * 0.35
+		total_time -= acceleration_forward * 0.25
 	if area.is_in_group("obstacle20"):
-		total_time -= acceleration_forward * 0.2
+		total_time -= acceleration_forward * 0.1
 	if total_time < 0:
 		total_time = 0

@@ -1,4 +1,4 @@
-[gd_scene load_steps=9 format=2]
+[gd_scene load_steps=10 format=2]
 
 [ext_resource path="res://Elements/Player/PlayerWithCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Elements/PropsTerrain/MurPierreA.tscn" type="PackedScene" id=2]
@@ -8,6 +8,7 @@
 [ext_resource path="res://Elements/PropsTerrain/Arbre.tscn" type="PackedScene" id=6]
 [ext_resource path="res://Elements/PropsTerrain/cailloux.tscn" type="PackedScene" id=7]
 [ext_resource path="res://Elements/PropsTerrain/barriere.tscn" type="PackedScene" id=8]
+[ext_resource path="res://Elements/Radis/Radish.tscn" type="PackedScene" id=9]
 
 [node name="Spatial" type="Spatial"]
 
@@ -256,7 +257,7 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.74846
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.74845e-06, 0, 680 )
 
 [node name="PlayerWithCamera" parent="." instance=ExtResource( 1 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -216.999 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, 0, -216.999 )
 
 [node name="Player" parent="PlayerWithCamera" index="0"]
 move_forward_speed = 30
@@ -333,7 +334,16 @@ transform = Transform( -0.789962, 0, -0.613155, 0, 1, 0, 0.613155, 0, -0.789962,
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49729, -0.225926, -13.003 )
 
 [node name="Cube005" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9868, 0.973151, -160.749 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.2, 0.973, -160.749 )
+
+[node name="Cube006" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.80259, -0.237433, -160.749 )
+
+[node name="Radish" parent="." instance=ExtResource( 9 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 11.7913, 3.10817, -189.678 )
+move_forward_speed = 25
+acceleration_forward = 5
+gravity = 0.5
 
 [editable path="PlayerWithCamera"]
 [editable path="PlayerWithCamera/Player"]
