@@ -18,10 +18,16 @@ var current_speed = 0
 
 var y_velo = 0
 
+var started = false
+
 func _ready():
-	anim.play("Run_loop")
+	anim.play("Idle_loop")
+	rotation_degrees.y = 180
 
 func _physics_process(delta):
+	if !started:
+		return
+	
 	var movement_vector := calculate_forward_vector() + calculate_side_vector(delta)
 	total_time += delta
 	
@@ -81,3 +87,8 @@ func _on_TriggerShape_area_entered(area: Area):
 		total_time -= acceleration_forward * 0.1
 	if total_time < 0:
 		total_time = 0
+
+func _on_Control_OneDone():
+	rotation_degrees.y = 0
+	anim.play("Run_loop")
+	started = true

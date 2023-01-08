@@ -1,6 +1,7 @@
 extends Control
 
 signal StartDone
+signal OneDone
 
 export var two : Texture
 export var one : Texture
@@ -57,6 +58,7 @@ func change_texture():
 	if state == 2:
 		currentText.texture = two
 	if state == 1:
+		emit_signal("OneDone")
 		currentText.texture = one
 	if state == 0:
 		emit_signal("StartDone")
