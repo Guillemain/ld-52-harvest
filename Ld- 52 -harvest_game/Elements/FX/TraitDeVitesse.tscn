@@ -33,6 +33,6 @@ color_ramp = SubResource( 5 )
 transform = Transform( 1, 0, 0, 0, -4.37114e-08, 1, 0, -1, -4.37114e-08, 0, 0, 0 )
 material_override = SubResource( 1 )
 amount = 20
-lifetime = 14.12
+lifetime = 1.32
 process_material = SubResource( 2 )
 draw_pass_1 = SubResource( 3 )

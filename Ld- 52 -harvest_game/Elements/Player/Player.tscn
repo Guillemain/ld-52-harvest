@@ -17,9 +17,11 @@ script = ExtResource( 1 )
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325, 0.2 )
+visible = false
 shape = SubResource( 1 )
 
 [node name="TriggerShape" type="Area" parent="."]
+visible = false
 
 [node name="CollisionShape" type="CollisionShape" parent="TriggerShape"]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325, 0.2 )
@@ -33,7 +35,7 @@ script = ExtResource( 3 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.265859, -0.716341 )
 
 [node name="SpeedLines" parent="." instance=ExtResource( 5 )]
-transform = Transform( -0.00558143, 0, 0.297447, 0, 0.753697, 0, -0.753565, 0, -0.0141402, 0, 0.505391, 0 )
+transform = Transform( -0.00558143, 0, 0.297447, 0, 0.753697, 0, -0.753565, 0, -0.0141402, 0, 0.505391, 0.618664 )
 
 [connection signal="turbo_end" from="." to="Mesh" method="_on_Player_turbo_end"]
 [connection signal="turbo_start" from="." to="Mesh" method="_on_Player_turbo_start"]

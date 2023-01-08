@@ -388,3 +388,5 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.0947
 [editable path="PlayerWithCamera"]
 [editable path="PlayerWithCamera/Player"]
 [editable path="PlayerWithCamera/Player/Mesh"]
+[editable path="PlayerWithCamera/Player/Effet_roue"]
+[editable path="PlayerWithCamera/Player/Effet_roue2"]
