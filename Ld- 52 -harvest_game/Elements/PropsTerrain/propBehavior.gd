@@ -28,5 +28,5 @@ func _process(delta):
 func _on_area_entered(collided_area: Area):
 	if collided_area.is_in_group("player"):
 		broken = true
-		area.monitorable = false
-		area.monitoring = false
+		area.set_deferred("monitoring", false)
+		area.set_deferred("monitorable", false)
