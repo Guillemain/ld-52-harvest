@@ -15,10 +15,10 @@ func _ready():
 	if area != null:
 		area.connect("area_entered", self, "_on_area_entered")
 
-func _process(delta):
+func _physics_process(delta):
 	if broken:
 		translation.z += 40 * delta
-		translation.x += x_dir
+		translation.x += x_dir * delta
 		translation.y += 30 * delta
 		rotation_degrees.x += 300 * delta
 		time_elapsed += delta
@@ -27,6 +27,7 @@ func _process(delta):
 
 func _on_area_entered(collided_area: Area):
 	if collided_area.is_in_group("player") or collided_area.is_in_group("AI"):
-		broken = true
 		area.set_deferred("monitoring", false)
 		area.set_deferred("monitorable", false)
+		broken = true
+		

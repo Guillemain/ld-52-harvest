@@ -95,10 +95,13 @@ func _on_TriggerShape_area_entered(area: Area):
 		y_velo = 10
 	if area.is_in_group("obstacle50"):
 		total_time -= acceleration_forward * 0.5
+		_fx_obstacle()
 	if area.is_in_group("obstacle35"):
 		total_time -= acceleration_forward * 0.35
+		_fx_obstacle()
 	if area.is_in_group("obstacle20"):
 		total_time -= acceleration_forward * 0.2
+		_fx_obstacle()
 	if area.is_in_group("finish"):
 		emit_signal("finished")
 	if total_time < 0:
@@ -106,3 +109,8 @@ func _on_TriggerShape_area_entered(area: Area):
 
 func _on_Control_StartDone():
 	started = true
+
+func _fx_obstacle():
+	Engine.time_scale = 0.01
+	yield(get_tree().create_timer(0.01*1),"timeout")
+	Engine.time_scale = 1
