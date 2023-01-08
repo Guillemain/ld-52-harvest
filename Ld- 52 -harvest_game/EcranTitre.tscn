@@ -1,0 +1,43 @@
+[gd_scene load_steps=6 format=2]
+
+[ext_resource path="res://Elements/PropsTerrain/cailloux.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Elements/PropsTerrain/exportset/Rampe.glb" type="PackedScene" id=2]
+[ext_resource path="res://Elements/PropsTerrain/MurPierreA.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Elements/PropsTerrain/TileTerrainA.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Elements/Radis/Radish.tscn" type="PackedScene" id=6]
+
+[node name="Spatial" type="Spatial"]
+
+[node name="MurPierre" parent="." instance=ExtResource( 3 )]
+transform = Transform( 0.958238, 0.285973, 0, -0.285973, 0.958238, 0, 0, 0, 1, 13.2334, -4.24672, 12.0213 )
+
+[node name="Plane_t_v2" parent="MurPierre" instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, -2.58101, 1.49502, -0.428286 )
+
+[node name="Rampe" parent="MurPierre/Plane_t_v2" instance=ExtResource( 2 )]
+transform = Transform( 1.66765, -0.0412025, 1.10098, 0.319473, 1.99145, -0.185798, -1.09244, 0.0826972, 1.6671, -12.7134, -1.05414, 2.72226 )
+
+[node name="Cube001" parent="MurPierre" instance=ExtResource( 1 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.3997, 0.52707, 8.5508 )
+
+[node name="Cube002" parent="MurPierre" instance=ExtResource( 1 )]
+transform = Transform( 0.682079, -0.094879, 0.725097, -0.094879, 0.971685, 0.216395, -0.725097, -0.216395, 0.653764, -10.052, 2.20443, -3.8283 )
+
+[node name="Radish" parent="MurPierre/Cube002" instance=ExtResource( 6 )]
+transform = Transform( -0.164107, -0.141589, 0.450579, 0.090891, 0.458619, 0.17722, -0.463474, 0.140073, -0.124786, -4.01778, 0.164439, -2.81167 )
+
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.855367, -0.253795, 0.451592, -0.191648, 0.654867, 0.731041, -0.481267, -0.711855, 0.511512, -0.789434, 5.94783, 12.4451 )
+light_energy = 1.067
+light_indirect_energy = 0.0
+shadow_enabled = true
+shadow_bias = 0.456
+directional_shadow_mode = 0
+directional_shadow_normal_bias = 0.0
+
+[node name="Camera" type="Camera" parent="."]
+transform = Transform( -0.22327, -0.167448, 0.960266, -0.0979356, 0.984003, 0.148816, -0.969824, -0.060818, -0.236098, 10.1532, 4.3302, 4.53446 )
+fov = 36.5
+
+[editable path="MurPierre/Cube002/Radish"]
+[editable path="MurPierre/Cube002/Radish/radis"]
