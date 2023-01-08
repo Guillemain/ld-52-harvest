@@ -1,4 +1,4 @@
-[gd_scene load_steps=11 format=2]
+[gd_scene load_steps=12 format=2]
 
 [ext_resource path="res://Elements/Player/PlayerWithCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Elements/PropsTerrain/MurPierreA.tscn" type="PackedScene" id=2]
@@ -10,6 +10,7 @@
 [ext_resource path="res://Elements/PropsTerrain/barriere.tscn" type="PackedScene" id=8]
 [ext_resource path="res://Elements/Radis/Radish.tscn" type="PackedScene" id=9]
 [ext_resource path="res://Elements/UI/startUI.tscn" type="PackedScene" id=10]
+[ext_resource path="res://Elements/PropsTerrain/Finish.tscn" type="PackedScene" id=11]
 
 [node name="Spatial" type="Spatial"]
 
@@ -243,11 +244,17 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 680 )
 [node name="murPierre24" parent="world" instance=ExtResource( 5 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 720 )
 
+[node name="murPierre26" parent="world" instance=ExtResource( 5 )]
+transform = Transform( 0.850848, 0, 0.525412, -0.056261, 0.99425, 0.0911085, -0.522391, -0.10708, 0.845956, -16.2524, 0.172419, 715.665 )
+
 [node name="MurPierre24" parent="world" instance=ExtResource( 2 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.74846e-06, 0, 720 )
+transform = Transform( -0.998217, 0, 0.0596896, 0, 1, 0, -0.0596896, 0, -0.998217, -1.1641, 0, 718.396 )
 
 [node name="murPierre25" parent="world" instance=ExtResource( 5 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.74845e-06, 0, 680 )
+
+[node name="murPierre27" parent="world" instance=ExtResource( 5 )]
+transform = Transform( -0.918032, 0.0225827, 0.395863, 4.97909e-09, 0.998377, -0.0569542, -0.396507, -0.0522857, -0.916542, 11.1296, 1.19411, 717.684 )
 
 [node name="PlayerWithCamera" parent="." instance=ExtResource( 1 )]
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.767916, -216.999 )
@@ -339,6 +346,9 @@ acceleration_forward = 5
 gravity = 0.5
 
 [node name="Control" parent="." instance=ExtResource( 10 )]
+
+[node name="Finish" parent="." instance=ExtResource( 11 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 760 )
 
 [connection signal="OneDone" from="Control" to="Radish" method="_on_Control_OneDone"]
 [connection signal="StartDone" from="Control" to="PlayerWithCamera/Player" method="_on_Control_StartDone"]

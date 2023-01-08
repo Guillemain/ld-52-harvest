@@ -1,0 +1,82 @@
+[gd_scene load_steps=7 format=2]
+
+[ext_resource path="res://Elements/PropsTerrain/TileTerrainB.tscn" type="PackedScene" id=1]
+[ext_resource path="res://Elements/PropsTerrain/TileTerrainA.tscn" type="PackedScene" id=2]
+[ext_resource path="res://Elements/PropsTerrain/murPierreB.tscn" type="PackedScene" id=3]
+[ext_resource path="res://Elements/PropsTerrain/MurPierreA.tscn" type="PackedScene" id=4]
+[ext_resource path="res://Elements/PropsTerrain/exportset/finish.glb" type="PackedScene" id=5]
+
+[sub_resource type="BoxShape" id=1]
+extents = Vector3( 8, 10, 1 )
+
+[node name="Finish" type="Spatial"]
+
+[node name="finish" parent="." instance=ExtResource( 5 )]
+
+[node name="Plane_t_v2" parent="." instance=ExtResource( 2 )]
+transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, -2, 40 )
+
+[node name="Plane_t_v3" parent="." instance=ExtResource( 2 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 0.5, 0, 8.74228e-08, 0, -1, 0, -2, 80 )
+
+[node name="Plane_t" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 0.5, 0, 1.50996e-07, 0, -1, 0, -2, 120 )
+skeleton = NodePath("../Plane_t_v3")
+
+[node name="Plane_t2" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 0.5, 0, 1.50996e-07, 0, -1, 0, -2, 160 )
+skeleton = NodePath("../Plane_t_v3")
+
+[node name="Plane_t3" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 0.5, 0, 1.50996e-07, 0, -1, 0, -2, 200 )
+skeleton = NodePath("../Plane_t_v3")
+
+[node name="Plane_t4" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 0.5, 0, 1.50996e-07, 0, -1, 0, -2, 240 )
+skeleton = NodePath("../Plane_t_v3")
+
+[node name="Plane_t5" parent="." instance=ExtResource( 1 )]
+transform = Transform( -1, 0, -1.50996e-07, 0, 0.5, 0, 1.50996e-07, 0, -1, 0, -2, 280 )
+skeleton = NodePath("../Plane_t_v3")
+
+[node name="MurPierre" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 40 )
+
+[node name="murPierre2" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 80 )
+
+[node name="MurPierre2" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.74846e-06, -2, 80 )
+
+[node name="murPierre3" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.74846e-06, -2, 40 )
+
+[node name="MurPierre3" parent="." instance=ExtResource( 4 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 120 )
+
+[node name="MurPierre5" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 4, -2, 193 )
+
+[node name="MurPierre6" parent="." instance=ExtResource( 4 )]
+transform = Transform( 0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, 0.965926, 14, -2, 231 )
+
+[node name="murPierre4" parent="." instance=ExtResource( 3 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -2, 160 )
+
+[node name="MurPierre4" parent="." instance=ExtResource( 4 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.74846e-06, -2, 160 )
+
+[node name="murPierre5" parent="." instance=ExtResource( 3 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.74846e-06, -2, 120 )
+
+[node name="murPierre6" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -5, -2, 193 )
+
+[node name="murPierre7" parent="." instance=ExtResource( 3 )]
+transform = Transform( -0.965926, 0, 0.258819, 0, 1, 0, -0.258819, 0, -0.965926, -15, -2, 230 )
+
+[node name="Area" type="Area" parent="." groups=["finish"]]
+
+[node name="CollisionShape" type="CollisionShape" parent="Area"]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -7 )
+shape = SubResource( 1 )

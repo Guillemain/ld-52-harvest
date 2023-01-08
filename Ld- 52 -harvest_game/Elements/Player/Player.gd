@@ -1,5 +1,7 @@
 extends KinematicBody
 
+signal finished
+
 export var move_forward_speed = 20
 export var move_side_speed = 20
 export var acceleration_forward = 10
@@ -92,15 +94,15 @@ func _on_TriggerShape_area_entered(area: Area):
 	if area.is_in_group("jump20"):
 		y_velo = 10
 	if area.is_in_group("obstacle50"):
-		print("oui")
 		total_time -= acceleration_forward * 0.5
 	if area.is_in_group("obstacle35"):
 		total_time -= acceleration_forward * 0.35
 	if area.is_in_group("obstacle20"):
 		total_time -= acceleration_forward * 0.2
+	if area.is_in_group("finish"):
+		emit_signal("finished")
 	if total_time < 0:
 		total_time = 0
-
 
 func _on_Control_StartDone():
 	started = true

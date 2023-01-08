@@ -21,4 +21,6 @@ far = 1000.0
 script = ExtResource( 2 )
 player_path = NodePath("../Player")
 
+[connection signal="finished" from="Player" to="Camera" method="_on_Player_finished"]
+
 [editable path="Player"]
