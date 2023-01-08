@@ -332,5 +332,8 @@ transform = Transform( -0.789962, 0, -0.613155, 0, 1, 0, 0.613155, 0, -0.789962,
 [node name="Cube004" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49729, -0.225926, -13.003 )
 
+[node name="Cube005" parent="." instance=ExtResource( 7 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.9868, 0.973151, -160.749 )
+
 [editable path="PlayerWithCamera"]
 [editable path="PlayerWithCamera/Player"]
