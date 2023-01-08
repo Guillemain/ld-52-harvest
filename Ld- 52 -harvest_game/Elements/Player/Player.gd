@@ -19,7 +19,12 @@ var current_speed = 0
 
 var y_velo = 0
 
+var started = false
+
 func _physics_process(delta):
+	if !started:
+		return
+	
 	var movement_vector := calculate_forward_vector() + calculate_side_vector(delta)
 	total_time += delta
 	
@@ -83,7 +88,6 @@ func rotate_mesh(side, acceleration_threshold):
 	mesh.rotation_degrees.y = mesh_base_angle + goal_angle
 	#mesh.rotation_degrees.y = lerp(mesh.rotation_degrees.y, mesh_base_angle + goal_angle, 0.1)
 
-
 func _on_TriggerShape_area_entered(area: Area):
 	if area.is_in_group("jump20"):
 		y_velo = 10
@@ -96,3 +100,7 @@ func _on_TriggerShape_area_entered(area: Area):
 		total_time -= acceleration_forward * 0.2
 	if total_time < 0:
 		total_time = 0
+
+
+func _on_Control_StartDone():
+	started = true
