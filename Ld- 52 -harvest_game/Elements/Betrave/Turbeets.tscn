@@ -5,7 +5,7 @@
 [sub_resource type="BoxShape" id=1]
 extents = Vector3( 4, 1, 4 )
 
-[node name="Spatial" type="Spatial"]
+[node name="Turbeets" type="Spatial"]
 
 [node name="betrave2" parent="." instance=ExtResource( 1 )]
 transform = Transform( -0.763165, 0, 0.646204, 0, 1, 0, -0.646204, 0, -0.763165, -1, 0, 0 )

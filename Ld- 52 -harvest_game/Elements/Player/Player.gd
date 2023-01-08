@@ -21,7 +21,7 @@ var total_time_turn = 0
 var goal_angle = 0
 var goal_x = 0
 var current_speed = 0
-var original_forward_speed = move_forward_speed
+onready var original_forward_speed = move_forward_speed
 
 var y_velo = 0
 

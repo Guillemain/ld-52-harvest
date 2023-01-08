@@ -1,4 +1,4 @@
-[gd_scene load_steps=13 format=2]
+[gd_scene load_steps=14 format=2]
 
 [ext_resource path="res://Elements/Player/PlayerWithCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Elements/PropsTerrain/MurPierreA.tscn" type="PackedScene" id=2]
@@ -12,6 +12,7 @@
 [ext_resource path="res://Elements/UI/startUI.tscn" type="PackedScene" id=10]
 [ext_resource path="res://Elements/PropsTerrain/Finish.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Elements/Betrave/Turbeets.tscn" type="PackedScene" id=12]
+[ext_resource path="res://Elements/PropsTerrain/Rampe.tscn" type="PackedScene" id=13]
 
 [node name="Spatial" type="Spatial"]
 
@@ -261,6 +262,7 @@ transform = Transform( -0.918032, 0.0225827, 0.395863, 4.97909e-09, 0.998377, -0
 transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.767916, -216.999 )
 
 [node name="Player" parent="PlayerWithCamera" index="0"]
+move_forward_speed = 30.0
 move_side_speed = 20
 max_turn_angle = 30
 
@@ -361,6 +363,21 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2094, 0.000718355, -115.19
 
 [node name="Spatial4" parent="." instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2094, 0.000718355, -107.199 )
+
+[node name="Spatial5" parent="." instance=ExtResource( 12 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2094, 0.000718355, -54.1994 )
+
+[node name="Rampe" parent="." instance=ExtResource( 13 )]
+transform = Transform( -3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, -14.4134, -2.38419e-07, -50.7752 )
+
+[node name="Barriere10" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.09474, -0.141776, -56.7937 )
+
+[node name="Barriere11" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.09474, -0.141776, -60.7937 )
+
+[node name="Barriere12" parent="." instance=ExtResource( 8 )]
+transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.09474, -0.141776, -52.7937 )
 
 [connection signal="OneDone" from="Control" to="Radish" method="_on_Control_OneDone"]
 [connection signal="StartDone" from="Control" to="PlayerWithCamera/Player" method="_on_Control_StartDone"]
