@@ -27,6 +27,12 @@ var y_velo = 0
 
 var started = false
 
+## particule effect
+var speed_lines : Particles
+func _ready():
+	speed_lines = get_node("SpeedLines/Particles") as Particles
+
+
 func _physics_process(delta):
 	if !started:
 		return
@@ -43,6 +49,7 @@ func _physics_process(delta):
 	movement_vector.y = y_velo
 	
 	move_and_slide(movement_vector, Vector3(0, 1, 0))
+	speed_lines.lifetime = (move_forward_speed*1.0/(current_speed+0.5))
 	
 	# Check if player is on floor to apply gravity or not
 	var grounded = is_on_floor()
@@ -51,7 +58,7 @@ func _physics_process(delta):
 		y_velo = -0.1
 	if y_velo < -max_fall_speed:
 		y_velo = -max_fall_speed
-
+	
 func calculate_forward_vector() -> Vector3:
 	var move_forward_vec := Vector3.ZERO
 	
@@ -120,11 +127,10 @@ func _on_Control_StartDone():
 
 func _fx_obstacle():
 	Engine.time_scale = 0.01
-	yield(get_tree().create_timer(0.01*1),"timeout")
+	yield(get_tree().create_timer(0.01*0.1),"timeout")
 	Engine.time_scale = 1
 
 func _on_TurboTimer_timeout():
-	print("oui")
 	move_forward_speed = original_forward_speed
 	emit_signal("turbo_end")
 	turboTimer.stop()

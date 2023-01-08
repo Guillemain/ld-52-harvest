@@ -8,6 +8,10 @@ var duration = 2
 var rng = RandomNumberGenerator.new()
 var x_dir = 0
 
+
+## Effect 
+var impact_particule := preload("res://Elements/FX/ImpactEffect.tscn")
+
 func _ready():
 	rng.randomize()
 	x_dir = rng.randf_range(-0.5, 0.5)
@@ -27,6 +31,9 @@ func _physics_process(delta):
 
 func _on_area_entered(collided_area: Area):
 	if collided_area.is_in_group("player") or collided_area.is_in_group("AI"):
+		var particule = impact_particule.instance()
+		self.add_child(particule)
+		particule.get_child(0).emitting = true
 		area.set_deferred("monitoring", false)
 		area.set_deferred("monitorable", false)
 		broken = true

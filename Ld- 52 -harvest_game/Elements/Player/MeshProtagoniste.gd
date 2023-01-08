@@ -19,4 +19,10 @@ func _ready():
 func _physics_process(delta):
 	rouematerial.uv1_offset += Vector3.RIGHT * delta * vitesse_roue
 
+func _on_Player_turbo_start():
+	for particule in get_node("../BetraveEffect").get_children():
+		(particule as Particles).emitting = true
 
+func _on_Player_turbo_end():
+	for particule in get_node("../BetraveEffect").get_children():
+		(particule as Particles).emitting = false

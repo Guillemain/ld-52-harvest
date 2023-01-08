@@ -1,0 +1,99 @@
+[gd_scene load_steps=14 format=2]
+
+[ext_resource path="res://Elements/FX/particule_betrave.png" type="Texture" id=1]
+[ext_resource path="res://Elements/FX/Impact.png" type="Texture" id=2]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="Gradient" id=10]
+offsets = PoolRealArray( 0.0574163, 0.138756, 0.80622, 0.897129 )
+colors = PoolColorArray( 1, 0, 0.74902, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 10 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+lifetime_randomness = 0.25
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3( 0, 10, -5 )
+spread = 17.75
+gravity = Vector3( 0, -9, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 0.62
+linear_accel = -5.0
+angle = 366.2
+angle_random = 1.0
+scale = 0.3
+scale_random = 0.21
+color_ramp = SubResource( 5 )
+hue_variation = 0.01
+hue_variation_random = 0.81
+
+[sub_resource type="QuadMesh" id=3]
+
+[sub_resource type="SpatialMaterial" id=6]
+flags_transparent = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_blend_mode = 1
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_texture = ExtResource( 2 )
+
+[sub_resource type="Gradient" id=11]
+offsets = PoolRealArray( 0.0574163, 0.777512, 1 )
+colors = PoolColorArray( 1, 0, 0.74902, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=12]
+gradient = SubResource( 11 )
+
+[sub_resource type="Curve" id=7]
+_data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -0.356801, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=8]
+curve = SubResource( 7 )
+
+[sub_resource type="ParticlesMaterial" id=9]
+lifetime_randomness = 0.25
+direction = Vector3( 0, 0, -1 )
+spread = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity = 10.0
+initial_velocity_random = 0.62
+linear_accel = -10.0
+angle = 366.2
+angle_random = 1.0
+scale = 0.5
+scale_random = 0.57
+scale_curve = SubResource( 8 )
+color = Color( 1, 1, 1, 0.321569 )
+color_ramp = SubResource( 12 )
+
+[node name="BetraveEffect" type="Spatial"]
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.679336, 0 )
+material_override = SubResource( 1 )
+emitting = false
+process_material = SubResource( 2 )
+draw_pass_1 = SubResource( 3 )
+
+[node name="Boost" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 0.889097, -0.457719, 0, 0.457719, 0.889097, 0, 0, 0 )
+material_override = SubResource( 6 )
+emitting = false
+amount = 50
+lifetime = 0.52
+process_material = SubResource( 9 )
+draw_pass_1 = SubResource( 3 )
