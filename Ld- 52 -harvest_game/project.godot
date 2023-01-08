@@ -14,6 +14,11 @@ config/name="Ld- 52 -harvest_game"
 run/main_scene="res://Elements/Levels/Level1.tscn"
 config/icon="res://icon.png"
 
+[display]
+
+window/size/width=720
+window/size/height=300
+
 [gui]
 
 common/drop_mouse_on_gui_input_disabled=true

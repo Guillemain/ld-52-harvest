@@ -1,0 +1,56 @@
+[gd_scene load_steps=9 format=2]
+
+[ext_resource path="res://Elements/FX/BoueProjection.png" type="Texture" id=1]
+
+[sub_resource type="SpatialMaterial" id=1]
+flags_use_shadow_to_opacity = true
+flags_unshaded = true
+vertex_color_use_as_albedo = true
+params_billboard_mode = 3
+particles_anim_h_frames = 1
+particles_anim_v_frames = 1
+particles_anim_loop = false
+albedo_color = Color( 0.67451, 0.643137, 0.388235, 1 )
+albedo_texture = ExtResource( 1 )
+
+[sub_resource type="Gradient" id=4]
+offsets = PoolRealArray( 0.046875, 0.541667, 0.994792 )
+colors = PoolColorArray( 0.306641, 0.25819, 0.192848, 1, 0.90149, 0.894606, 0.885323, 1, 1, 1, 1, 0 )
+
+[sub_resource type="GradientTexture" id=5]
+gradient = SubResource( 4 )
+
+[sub_resource type="Curve" id=6]
+_data = [ Vector2( 0, 0.741379 ), 0.0, 1.69349, 0, 0, Vector2( 1, 0.25 ), -0.854886, 0.0, 0, 0 ]
+
+[sub_resource type="CurveTexture" id=7]
+curve = SubResource( 6 )
+
+[sub_resource type="ParticlesMaterial" id=2]
+emission_shape = 1
+emission_sphere_radius = 0.1
+direction = Vector3( 0, 1, -1 )
+spread = 1.0
+gravity = Vector3( 0, 0, 0 )
+initial_velocity_random = 0.41
+linear_accel = -36.8
+angle = 360.0
+angle_random = 1.0
+scale = 0.5
+scale_curve = SubResource( 7 )
+color = Color( 0.278431, 0.137255, 0.113725, 0.705882 )
+color_ramp = SubResource( 5 )
+hue_variation = 0.1
+hue_variation_random = 0.14
+
+[sub_resource type="QuadMesh" id=3]
+
+[node name="Effet_roue" type="Spatial"]
+
+[node name="Particles" type="Particles" parent="."]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.117413, -0.194743 )
+material_override = SubResource( 1 )
+amount = 100
+local_coords = false
+process_material = SubResource( 2 )
+draw_pass_1 = SubResource( 3 )
