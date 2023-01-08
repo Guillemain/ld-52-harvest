@@ -2,10 +2,9 @@ extends MeshInstance
 
 var area : Area
 var broken = false
-onready var test = self.mesh.get_surface_count()
 
 var time_elapsed = 0
-var duration = 1
+var duration = 2
 var rng = RandomNumberGenerator.new()
 var x_dir = 0
 
@@ -15,13 +14,12 @@ func _ready():
 	area = get_child(0) as Area
 	if area != null:
 		area.connect("area_entered", self, "_on_area_entered")
-	# envoyer valdinguer le prop et ptet le rendre transparent
 
 func _process(delta):
 	if broken:
 		translation.z += 40 * delta
 		translation.x += x_dir
-		translation.y += 20 * delta
+		translation.y += 30 * delta
 		rotation_degrees.x += 300 * delta
 		time_elapsed += delta
 		if time_elapsed >= duration:
