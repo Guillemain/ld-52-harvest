@@ -6,13 +6,15 @@
 [node name="PlayerWithCamera" type="Spatial"]
 
 [node name="Player" parent="." instance=ExtResource( 1 )]
-move_forward_speed = 50
 move_side_speed = 40
 acceleration_side = 1.0
 max_turn_angle = 20
 gravity = 0.5
 
 [node name="TriggerShape" parent="Player" index="2" groups=["player"]]
+
+[node name="TurboTimer" type="Timer" parent="Player"]
+wait_time = 2.0
 
 [node name="Camera" type="Camera" parent="."]
 transform = Transform( -1, -1.51808e-08, 8.60946e-08, 0, 0.984808, 0.173648, -8.74228e-08, 0.173648, -0.984808, 0, 3, -5 )
@@ -22,5 +24,8 @@ script = ExtResource( 2 )
 player_path = NodePath("../Player")
 
 [connection signal="finished" from="Player" to="Camera" method="_on_Player_finished"]
+[connection signal="turbo_end" from="Player" to="Camera" method="_on_Player_turbo_end"]
+[connection signal="turbo_start" from="Player" to="Camera" method="_on_Player_turbo_start"]
+[connection signal="timeout" from="Player/TurboTimer" to="Player" method="_on_TurboTimer_timeout"]
 
 [editable path="Player"]

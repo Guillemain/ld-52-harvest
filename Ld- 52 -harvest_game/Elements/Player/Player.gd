@@ -1,8 +1,10 @@
 extends KinematicBody
 
 signal finished
+signal turbo_start
+signal turbo_end
 
-export var move_forward_speed = 20
+export var move_forward_speed = 20.0
 export var move_side_speed = 20
 export var acceleration_forward = 10
 export var acceleration_side = 10.0
@@ -11,6 +13,7 @@ export var gravity = 0.98
 export var max_fall_speed = 30
 
 onready var mesh = $Mesh
+onready var turboTimer = $TurboTimer
 onready var mesh_base_angle = mesh.rotation_degrees.y
 
 var total_time = 0
@@ -18,6 +21,7 @@ var total_time_turn = 0
 var goal_angle = 0
 var goal_x = 0
 var current_speed = 0
+var original_forward_speed = move_forward_speed
 
 var y_velo = 0
 
@@ -99,6 +103,10 @@ func _on_TriggerShape_area_entered(area: Area):
 		total_time -= acceleration_forward * 0.35
 	if area.is_in_group("obstacle20"):
 		total_time -= acceleration_forward * 0.2
+	if area.is_in_group("turbeets"):
+		turboTimer.start()
+		emit_signal("turbo_start")
+		move_forward_speed = original_forward_speed * 2
 	if area.is_in_group("finish"):
 		emit_signal("finished")
 	if total_time < 0:
@@ -106,3 +114,9 @@ func _on_TriggerShape_area_entered(area: Area):
 
 func _on_Control_StartDone():
 	started = true
+
+func _on_TurboTimer_timeout():
+	print("oui")
+	move_forward_speed = original_forward_speed
+	emit_signal("turbo_end")
+	turboTimer.stop()
