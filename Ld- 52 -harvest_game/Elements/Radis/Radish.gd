@@ -87,6 +87,8 @@ func _on_TriggerShape_area_entered(area: Area):
 		total_time -= acceleration_forward * 0.25
 	if area.is_in_group("obstacle20"):
 		total_time -= acceleration_forward * 0.1
+	if area.is_in_group("change_direction"):
+		goal_x = area.direction_x
 	if total_time < 0:
 		total_time = 0
 
