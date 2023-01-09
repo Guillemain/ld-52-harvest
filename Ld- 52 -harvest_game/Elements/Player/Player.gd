@@ -4,6 +4,8 @@ signal finished
 signal turbo_start
 signal turbo_end
 
+signal hit_something
+
 export var move_forward_speed = 20.0
 export var move_side_speed = 20
 export var acceleration_forward = 10
@@ -126,7 +128,7 @@ func _on_Control_StartDone():
 	started = true
 
 func _fx_obstacle():
-	pass
+	emit_signal("hit_something")
 
 func _on_TurboTimer_timeout():
 	move_forward_speed = original_forward_speed

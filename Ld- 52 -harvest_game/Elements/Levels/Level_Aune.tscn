@@ -716,6 +716,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 200 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 240 )
 
 [connection signal="finished" from="PlayerWithCamera/Player" to="." method="_on_Player_finished"]
+[connection signal="hit_something" from="PlayerWithCamera/Player" to="PlayerWithCamera/Camera" method="_on_Player_hit_something"]
 [connection signal="OneDone" from="Control" to="Radish" method="_on_Control_OneDone"]
 [connection signal="StartDone" from="Control" to="PlayerWithCamera/Player" method="_on_Control_StartDone"]
 
