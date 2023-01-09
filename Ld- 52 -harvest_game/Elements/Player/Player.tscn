@@ -14,6 +14,7 @@ extents = Vector3( 0.5, 0.3, 0.65 )
 
 [node name="Player" type="KinematicBody"]
 script = ExtResource( 1 )
+acceleration_forward = 7
 
 [node name="CollisionShape" type="CollisionShape" parent="."]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.325, 0.2 )

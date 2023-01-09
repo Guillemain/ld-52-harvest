@@ -126,9 +126,7 @@ func _on_Control_StartDone():
 	started = true
 
 func _fx_obstacle():
-	Engine.time_scale = 0.01
-	yield(get_tree().create_timer(0.01*0.1),"timeout")
-	Engine.time_scale = 1
+	pass
 
 func _on_TurboTimer_timeout():
 	move_forward_speed = original_forward_speed

@@ -19,20 +19,22 @@ func _process(delta):
 func _physics_process(delta):
 	var score = -(radish.global_translation.z - player.global_translation.z)
 	simple_counter += delta
-	if(score < 0):
-		if(simple_counter > 0.5 ):
-			if(simple_counter>1.0) : 
-				simple_counter = 0.0 
-			$HUD/VBoxContainer/Meters.add_color_override("font_color",Color.lightcoral)
-		else :
-			$HUD/VBoxContainer/Meters.add_color_override("font_color",Color8(209, 69, 59,255))
+	if(self.has_node("HUD")):
+		if(score < 0):
+			if(simple_counter > 0.5 ):
+				if(simple_counter>1.0) : 
+					simple_counter = 0.0 
+				$HUD/VBoxContainer/Meters.add_color_override("font_color",Color.lightcoral)
+			else :
+				$HUD/VBoxContainer/Meters.add_color_override("font_color",Color8(209, 69, 59,255))
+			
+			$HUD/VBoxContainer/Meters.text = str(floor(score)) + " meters "
+		else:
+			$HUD/VBoxContainer/Meters.add_color_override("font_color",Color.lightgoldenrod)
+			$HUD/VBoxContainer/Meters.text = " " + str(floor(score)) + " meters "
 		
-		$HUD/VBoxContainer/Meters.text = str(floor(score)) + " meters "
-	else:
-		$HUD/VBoxContainer/Meters.add_color_override("font_color",Color.lightgoldenrod)
-		$HUD/VBoxContainer/Meters.text = " " + str(floor(score)) + " meters "
-	
 func _on_Player_finished():
+	$HUD.queue_free()
 	var score = -(radish.global_translation.z - player.global_translation.z) # à la zob
 	if(score > 0):
 		var ui_instance := ui_end_game_win.instance() # creation du noeud

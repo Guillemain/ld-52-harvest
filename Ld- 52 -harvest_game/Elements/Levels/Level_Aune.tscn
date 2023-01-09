@@ -1,4 +1,4 @@
-[gd_scene load_steps=21 format=2]
+[gd_scene load_steps=22 format=2]
 
 [ext_resource path="res://Elements/PropsTerrain/Rampe.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Elements/Radis/Radish.tscn" type="PackedScene" id=2]
@@ -18,6 +18,7 @@
 [ext_resource path="res://Elements/PropsTerrain/barriere.tscn" type="PackedScene" id=16]
 [ext_resource path="res://Elements/UI/Om Botak.otf" type="DynamicFontData" id=17]
 [ext_resource path="res://Elements/Levels/MainGameServices.gd" type="Script" id=18]
+[ext_resource path="res://Elements/PropsTerrain/PlaneB_t.tscn" type="PackedScene" id=19]
 
 [sub_resource type="DynamicFont" id=1]
 size = 20
@@ -43,10 +44,6 @@ skeleton = NodePath("../..")
 
 [node name="Plane_t7" parent="world" instance=ExtResource( 3 )]
 transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 120 )
-skeleton = NodePath("../..")
-
-[node name="Plane_t10" parent="world" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 240 )
 skeleton = NodePath("../..")
 
 [node name="Plane_t2" parent="world" instance=ExtResource( 3 )]
@@ -134,18 +131,6 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 1.74846
 [node name="murPierre13" parent="world" instance=ExtResource( 5 )]
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.74845e-06, 0, 200 )
 
-[node name="Plane_t14" parent="world" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 263 )
-skeleton = NodePath("../..")
-
-[node name="Plane_t15" parent="world" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 303 )
-skeleton = NodePath("../..")
-
-[node name="Plane_t20" parent="world" instance=ExtResource( 3 )]
-transform = Transform( 1, 0, 0, 0, 0.5, 0, 0, 0, 1, 0, 0, 280 )
-skeleton = NodePath("../..")
-
 [node name="MurPierre13" parent="world" instance=ExtResource( 15 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 280 )
 
@@ -153,19 +138,19 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 280 )
 transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.74845e-06, 0, 520 )
 
 [node name="murPierre24" parent="world" instance=ExtResource( 5 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 303 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 319 )
 
 [node name="murPierre26" parent="world" instance=ExtResource( 5 )]
-transform = Transform( 0.965906, 0.0311051, 0.257018, -0.0834551, 0.977171, 0.195374, -0.245074, -0.210163, 0.946452, -7.9738, -1.66688, 298.665 )
+transform = Transform( 0.965906, 0.0311051, 0.257018, -0.0834551, 0.977171, 0.195374, -0.245074, -0.210163, 0.946452, -7.59253, -1.92038, 316.576 )
 
 [node name="MurPierre24" parent="world" instance=ExtResource( 15 )]
-transform = Transform( -0.998217, 0, 0.0596896, 0, 1, 0, -0.0596896, 0, -0.998217, -1.1641, 0, 301.396 )
+transform = Transform( -0.998217, 0, 0.0596896, 0, 1, 0, -0.0596896, 0, -0.998217, -1.12092, 0, 317.427 )
 
 [node name="murPierre25" parent="world" instance=ExtResource( 5 )]
-transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.74845e-06, 0, 263 )
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -2.62262e-07, 0, 280 )
 
 [node name="murPierre27" parent="world" instance=ExtResource( 5 )]
-transform = Transform( -0.987483, 0.0089832, 0.157471, -0.0141965, 0.989263, -0.145459, -0.157087, -0.145874, -0.976752, 6.46841, -1.0263, 303.11 )
+transform = Transform( -0.987483, 0.0089832, 0.157471, -0.0141965, 0.989263, -0.145459, -0.157087, -0.145874, -0.976752, 6.7269, -1.47869, 320.624 )
 
 [node name="PlaneC_t" parent="world" instance=ExtResource( 10 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -120 )
@@ -182,7 +167,7 @@ transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.767916, -202.172 )
 
 [node name="Player" parent="PlayerWithCamera" index="0"]
 move_forward_speed = 30.0
-acceleration_side = 0.5
+acceleration_side = 0.7
 max_turn_angle = 30
 
 [node name="Arbre" parent="." instance=ExtResource( 7 )]
@@ -216,7 +201,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 6.27337, -0.979988, -8.39598 )
 transform = Transform( 0.739186, -0.220953, 0.636227, 0.167464, 0.975285, 0.144139, -0.65235, 0, 0.757918, 11.069, -0.979988, -21.396 )
 
 [node name="Arbre7" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 10.5646, -0.314976, 18.9041 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.6228, -0.314976, 210.216 )
 
 [node name="Arbre8" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 14.2716, -2.14577e-06, 16.3233 )
@@ -252,7 +237,7 @@ transform = Transform( -0.521513, -0.186585, 0.832593, -0.336865, 0.941553, 0, -
 transform = Transform( -0.449306, 0.246419, 0.858721, 0.269588, 0.953796, -0.132647, -0.851732, 0.171902, -0.494978, -6.61535, -0.452427, -106.828 )
 
 [node name="Arbre16" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 8.9743, -0.979988, -142.45 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.9743, -0.979988, 258.55 )
 
 [node name="Arbre17" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 13.2655, -0.314976, -139.096 )
@@ -282,7 +267,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -18.3198, -0.979988, -142.45 )
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.0285, -0.314976, -139.096 )
 
 [node name="Arbre28" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.3215, -2.14577e-06, -141.677 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.1806, -2.38421e-07, 46.8135 )
 
 [node name="Arbre29" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -12.9954, -2.14577e-06, -147.951 )
@@ -306,7 +291,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -17.8382, -0.302433, -94.3947 
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -11.7346, -2.38419e-07, 15.2731 )
 
 [node name="Arbre3" parent="." instance=ExtResource( 7 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7231, 7.15256e-07, 17.097 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -14.7231, 7.15256e-07, 255.907 )
 
 [node name="Arbre4" parent="." instance=ExtResource( 7 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -15.817, 2.38419e-07, 10.674 )
@@ -327,7 +312,13 @@ transform = Transform( 0.997836, 0.0657514, 0, -0.0657514, 0.997836, 0, 0, 0, 1,
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.690893, -1, -46.4749 )
 
 [node name="Spatial" parent="Barriere5" instance=ExtResource( 13 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102649, -9.53674e-07, -1.38829 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102649, -9.53674e-07, -1.97473 )
+
+[node name="Barriere17" parent="." instance=ExtResource( 16 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.690893, -1, 63.4201 )
+
+[node name="Spatial" parent="Barriere17" instance=ExtResource( 13 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.102649, -9.53674e-07, -1.97473 )
 
 [node name="Barriere18" parent="." instance=ExtResource( 16 )]
 transform = Transform( 0.988033, 0, -0.154245, 0, 1, 0, 0.154245, 0, 0.988033, 0.690893, -1, -24.8218 )
@@ -389,9 +380,6 @@ transform = Transform( 0.998206, -0.0598813, 0, 0.0598813, 0.998206, 0, 0, 0, 1,
 [node name="Barriere24" parent="." instance=ExtResource( 16 )]
 transform = Transform( 0.998188, -0.0601775, 0, 0.0601775, 0.998188, 0, 0, 0, 1, 8.51109, -0.791855, -144.39 )
 
-[node name="Barriere17" parent="." instance=ExtResource( 16 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0.690893, -1, -191.475 )
-
 [node name="Barriere19" parent="." instance=ExtResource( 16 )]
 transform = Transform( 0.987906, -0.155055, 0, 0.155055, 0.987906, 0, 0, 0, 1, 9.15457, -0.206635, -191.475 )
 
@@ -420,10 +408,10 @@ transform = Transform( 0.423851, -0.0312343, -0.905193, 0.0263283, 0.999408, -0.
 transform = Transform( 0.423851, -0.0312343, -0.905193, 0.0263283, 0.999408, -0.0221572, 0.905349, -0.0144409, 0.424423, -14.9874, 0.328234, 85.6557 )
 
 [node name="Cube019" parent="." instance=ExtResource( 11 )]
-transform = Transform( 0.423851, -0.0312343, -0.905193, 0.0263283, 0.999408, -0.0221572, 0.905349, -0.0144409, 0.424423, -8.86851, 0.328234, 85.6557 )
+transform = Transform( 0.423851, -0.0312343, -0.905193, 0.0263283, 0.999408, -0.0221572, 0.905349, -0.0144409, 0.424423, -3.20174, -0.225276, 136.873 )
 
 [node name="Cube013" parent="." instance=ExtResource( 11 )]
-transform = Transform( 0.423851, -0.0312343, -0.905193, 0.0263283, 0.999408, -0.0221572, 0.905349, -0.0144409, 0.424423, 3.28466, 0.328234, 82.2255 )
+transform = Transform( 0.423851, -0.0312343, -0.905193, 0.0263283, 0.999408, -0.0221572, 0.905349, -0.0144409, 0.424423, 4.6638, -0.396128, 121.771 )
 
 [node name="Cube014" parent="." instance=ExtResource( 11 )]
 transform = Transform( 0.423851, -0.0312343, -0.905193, 0.0263283, 0.999408, -0.0221572, 0.905349, -0.0144409, 0.424423, 12.4283, 0.328234, 82.2255 )
@@ -450,10 +438,10 @@ transform = Transform( -0.789962, 0, -0.613155, 0, 1, 0, 0.613155, 0, -0.789962,
 transform = Transform( -0.789962, 0, -0.613155, 0, 1, 0, 0.613155, 0, -0.789962, 16.1081, 0.90546, -42.1046 )
 
 [node name="Cube004" parent="." instance=ExtResource( 11 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.49729, -0.225926, -13.003 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.42478, -0.225926, -13.5085 )
 
 [node name="Cube020" parent="." instance=ExtResource( 11 )]
-transform = Transform( 0.791085, 0, -0.611707, 0, 1, 0, 0.611707, 0, 0.791085, -2.68742, -0.225926, -20.2103 )
+transform = Transform( 0.791085, 0, -0.611707, 0, 1, 0, 0.611707, 0, 0.791085, -2.14433, -0.225926, -19.7904 )
 
 [node name="Cube005" parent="." instance=ExtResource( 11 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 7.5721, 0.148522, -154.672 )
@@ -487,7 +475,7 @@ gravity = 0.5
 [node name="Control" parent="." instance=ExtResource( 9 )]
 
 [node name="Finish" parent="." instance=ExtResource( 8 )]
-transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 342 )
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 320 )
 
 [node name="Spatial" parent="." instance=ExtResource( 12 )]
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2094, 0.000718355, -131.199 )
@@ -526,7 +514,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 17.4916, 0.000718355, -80.5531
 transform = Transform( 0.956412, 0, 0.292021, 0, 1, 0, -0.292021, 0, 0.956412, 4.90881, -0.0891297, 99.1674 )
 
 [node name="Spatial16" parent="." instance=ExtResource( 12 )]
-transform = Transform( 0.956412, 0, 0.292021, 0, 1, 0, -0.292021, 0, 0.956412, 14.9093, 1.15136, 131.434 )
+transform = Transform( 0.991692, -0.114121, -0.0593675, 0.111751, 0.992856, -0.0418266, 0.0637166, 0.0348447, 0.99736, 20.7282, 1.45555, 132.608 )
 
 [node name="Spatial17" parent="." instance=ExtResource( 12 )]
 transform = Transform( 0.956412, 0, 0.292021, 0, 1, 0, -0.292021, 0, 0.956412, -7.343, 1.15136, 153.568 )
@@ -544,7 +532,7 @@ transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, -10.2094, 0.000718355, -54.199
 transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 2.7636, -0.711866, -38.0724 )
 
 [node name="Rampe" parent="." instance=ExtResource( 1 )]
-transform = Transform( -3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, -14.4134, -2.38419e-07, -50.7752 )
+transform = Transform( -3, 0, -4.52987e-07, 0, 3, 0, 4.52987e-07, 0, -3, -12.9951, -2.38419e-07, 160.803 )
 
 [node name="Rampe3" parent="." instance=ExtResource( 1 )]
 transform = Transform( -3, 0, -4.52987e-07, -1.0411e-07, 2.91969, 0.689487, 4.40861e-07, 0.689487, -2.91969, 12.8936, 0, -108.005 )
@@ -655,7 +643,27 @@ transform = Transform( 0.999622, -0.0274855, 0, 0.0274855, 0.999622, 0, 0, 0, 1,
 skeleton = NodePath("../..")
 
 [node name="Barriere35" parent="jumperRadisetBarr" instance=ExtResource( 16 )]
-transform = Transform( -0.0837505, 0.00230279, -0.996484, 0.0274855, 0.999622, 0, 0.996108, -0.0273889, -0.0837822, -0.672831, -1.27448, 111.611 )
+transform = Transform( -0.142783, 0.00645392, -0.996484, -0.114799, 0.997669, 0.0120916, 1.69945, 0.067935, -0.0829049, 3.68461, -2.28705, 117.819 )
+skeleton = NodePath("../..")
+
+[node name="Barriere36" parent="jumperRadisetBarr" instance=ExtResource( 16 )]
+transform = Transform( -0.142783, 0.00645392, -0.996484, -0.114799, 0.997669, 0.0120916, 1.69945, 0.067935, -0.0829049, 4.77234, -1.41251, 104.873 )
+skeleton = NodePath("../..")
+
+[node name="Barriere37" parent="jumperRadisetBarr" instance=ExtResource( 16 )]
+transform = Transform( -0.141501, 0.0128998, -0.996484, 0.0175334, 0.999874, 0.0120916, 1.70334, -0.00922058, -0.0829049, 2.3851, -0.982419, 133.629 )
+skeleton = NodePath("../..")
+
+[node name="Barriere38" parent="jumperRadisetBarr" instance=ExtResource( 16 )]
+transform = Transform( -0.141501, 0.0128998, -0.996484, 0.0175334, 0.999874, 0.0120916, 1.70334, -0.00922058, -0.0829049, 1.77995, -0.907435, 140.914 )
+skeleton = NodePath("../..")
+
+[node name="Barriere39" parent="jumperRadisetBarr" instance=ExtResource( 16 )]
+transform = Transform( -0.1386, 0.0210835, -0.996484, 0.187726, 0.993877, 0.0120916, 1.6933, -0.10846, -0.0829049, -4.74419, -1.27348, 164.772 )
+skeleton = NodePath("../..")
+
+[node name="Barriere46" parent="jumperRadisetBarr" instance=ExtResource( 16 )]
+transform = Transform( -0.141153, 0.0141467, -0.996483, 0.0433029, 0.999605, 0.0120916, 1.70291, -0.0242461, -0.0829049, 6.31597, -0.736444, 156.293 )
 skeleton = NodePath("../..")
 
 [node name="Barriere34" parent="jumperRadisetBarr" instance=ExtResource( 16 )]
@@ -666,7 +674,46 @@ skeleton = NodePath("../..")
 transform = Transform( 4.03328, 0, 0, 0, 1, 0, 0, 0, 2.65538, -1.71132, -0.356493, -1.74757 )
 
 [node name="Jumper_radis4" parent="jumperRadisetBarr" groups=["jumper_radis"] instance=ExtResource( 13 )]
-transform = Transform( 4.03328, 0, 0, 0, 1, 0, 0, 0, 2.65538, -1.65652, -0.513792, 29.1408 )
+transform = Transform( 4.03328, 0, 0, 0, 1, 0, 0, 0, 2.65538, -0.883299, 0.41227, 28.8279 )
+
+[node name="Barriere40" parent="jumperRadisetBarr" instance=ExtResource( 16 )]
+transform = Transform( 1.69949, 0.101642, -0.0333774, -0.177278, 0.992301, -0.0676836, 0.0448537, 0.0707569, 0.997148, -3.39649, -1.08472, 204.479 )
+skeleton = NodePath("../..")
+
+[node name="Barriere41" parent="jumperRadisetBarr" instance=ExtResource( 16 )]
+transform = Transform( -1.49105, -0.056486, -0.485673, -0.169414, 0.99311, 0.0625129, 0.818406, 0.102667, -0.871902, 4.77608, -0.83371, 195.207 )
+skeleton = NodePath("../..")
+
+[node name="Barriere42" parent="jumperRadisetBarr" instance=ExtResource( 16 )]
+transform = Transform( -1.70723, 0.0128998, -0.0475392, 0.0227732, 0.999874, -0.00859764, 0.0810591, -0.00922058, -0.998832, -0.102048, -0.949242, 224.042 )
+skeleton = NodePath("../..")
+
+[node name="Barriere43" parent="jumperRadisetBarr" instance=ExtResource( 16 )]
+transform = Transform( -0.419036, 0.0128998, -0.969399, 0.0206867, 0.999874, 0.0102448, 1.65701, -0.00922058, -0.245276, 5.06567, -0.815567, 245.768 )
+skeleton = NodePath("../..")
+
+[node name="Barriere45" parent="jumperRadisetBarr" instance=ExtResource( 16 )]
+transform = Transform( -1.68631, 0.0128998, -0.162952, 0.0243227, 0.999874, -0.00699594, 0.278344, -0.00922058, -0.986609, 13.0997, 0.0296004, 234.749 )
+skeleton = NodePath("../..")
+
+[node name="Barriere44" parent="jumperRadisetBarr" instance=ExtResource( 16 )]
+transform = Transform( -0.13984, 0.0180652, -0.996484, 0.124664, 0.997263, 0.0120916, 1.699, -0.0716873, -0.0829049, -4.73272, -0.733004, 255.008 )
+skeleton = NodePath("../..")
+
+[node name="PlaneB_t" parent="." instance=ExtResource( 19 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 160 )
+
+[node name="PlaneB_t2" parent="." instance=ExtResource( 19 )]
+transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, 0, 0, 200 )
+
+[node name="Spatial21" parent="." instance=ExtResource( 12 )]
+transform = Transform( 0.969629, 0, -0.24458, 0, 1, 0, 0.24458, 0, 0.969629, 13.32, 0.70078, 296.425 )
+
+[node name="PlaneD_t" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 200 )
+
+[node name="PlaneD_t2" parent="." instance=ExtResource( 6 )]
+transform = Transform( 1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 240 )
 
 [connection signal="finished" from="PlayerWithCamera/Player" to="." method="_on_Player_finished"]
 [connection signal="OneDone" from="Control" to="Radish" method="_on_Control_OneDone"]
