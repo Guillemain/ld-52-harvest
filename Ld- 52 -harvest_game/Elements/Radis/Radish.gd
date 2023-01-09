@@ -79,6 +79,8 @@ func calculate_side_vector(delta) -> Vector3:
 func _on_TriggerShape_area_entered(area: Area):
 	if area.is_in_group("jump20"):
 		y_velo = 10
+	if area.is_in_group("jumper_radis"):
+		y_velo = 15
 	if area.is_in_group("obstacle50"):
 		total_time -= acceleration_forward * 0.4
 	if area.is_in_group("obstacle35"):

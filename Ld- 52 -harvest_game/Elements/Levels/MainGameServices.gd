@@ -13,7 +13,6 @@ func _ready():
 func _physics_process(delta):
 	var score = -(radish.global_translation.z - player.global_translation.z)
 	simple_counter += delta
-	print(simple_counter)
 	if(score < 0):
 		if(simple_counter > 0.5 ):
 			if(simple_counter>1.0) : 
