@@ -1,7 +1,7 @@
 extends Spatial
 
-const ui_end_game := preload("res://Elements/UI/UI_end_game.tscn")  
-
+const ui_end_game_win := preload("res://Elements/UI/UI_end_game.tscn")  
+const ui_end_game_failed := preload("res://Elements/UI/UI_end_game_failed.tscn")  
 var radish : Spatial
 var player : Spatial
 
@@ -28,9 +28,16 @@ func _physics_process(delta):
 		$HUD/VBoxContainer/Meters.text = " " + str(floor(score)) + " meters "
 	
 func _on_Player_finished():
-	var ui_instance := ui_end_game.instance() # creation du noeud
-	add_child(ui_instance)
-	var score = (radish.translation.z - player.translation.z) # à la zob
-	#ui_instance.get_node("AnimationPlayer").play("Open")
-	(ui_instance.get_node("VBoxContainer2/Score") as Label).text = "Score : " + str(floor(score)) + " meters "
-	
+	var score = -(radish.global_translation.z - player.global_translation.z) # à la zob
+	if(score > 0):
+		var ui_instance := ui_end_game_win.instance() # creation du noeud
+		add_child(ui_instance)
+		#ui_instance.get_node("AnimationPlayer").play("Open")
+		(ui_instance.get_node("VBoxContainer2/Score") as Label).text = "Score : " + str(floor(score)) + " meters "
+	else : 
+		var ui_instance := ui_end_game_failed.instance() # creation du noeud
+		add_child(ui_instance)
+		#ui_instance.get_node("AnimationPlayer").play("Open")
+		(ui_instance.get_node("VBoxContainer2/Score") as Label).text = "Your were at " + str(floor(score)) + " meters from it! "
+
+		
