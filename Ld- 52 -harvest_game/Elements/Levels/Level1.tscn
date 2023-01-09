@@ -1,4 +1,4 @@
-[gd_scene load_steps=14 format=2]
+[gd_scene load_steps=18 format=2]
 
 [ext_resource path="res://Elements/Player/PlayerWithCamera.tscn" type="PackedScene" id=1]
 [ext_resource path="res://Elements/PropsTerrain/MurPierreA.tscn" type="PackedScene" id=2]
@@ -13,8 +13,23 @@
 [ext_resource path="res://Elements/PropsTerrain/Finish.tscn" type="PackedScene" id=11]
 [ext_resource path="res://Elements/Betrave/Turbeets.tscn" type="PackedScene" id=12]
 [ext_resource path="res://Elements/PropsTerrain/Rampe.tscn" type="PackedScene" id=13]
+[ext_resource path="res://Elements/Levels/MainGameServices.gd" type="Script" id=14]
+[ext_resource path="res://Elements/UI/Om Botak.otf" type="DynamicFontData" id=15]
 
-[node name="Spatial" type="Spatial"]
+[sub_resource type="DynamicFont" id=1]
+size = 20
+outline_size = 2
+outline_color = Color( 0, 0, 0, 1 )
+use_filter = true
+font_data = ExtResource( 15 )
+
+[sub_resource type="DynamicFont" id=2]
+size = 20
+use_filter = true
+font_data = ExtResource( 15 )
+
+[node name="MainGame" type="Spatial"]
+script = ExtResource( 14 )
 
 [node name="world" type="Spatial" parent="."]
 
@@ -259,7 +274,7 @@ transform = Transform( -1, 0, -8.74228e-08, 0, 1, 0, 8.74228e-08, 0, -1, -1.7484
 transform = Transform( -0.918032, 0.0225827, 0.395863, 4.97909e-09, 0.998377, -0.0569542, -0.396507, -0.0522857, -0.916542, 11.1296, 1.19411, 717.684 )
 
 [node name="PlayerWithCamera" parent="." instance=ExtResource( 1 )]
-transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.767916, -216.999 )
+transform = Transform( 2, 0, 0, 0, 2, 0, 0, 0, 2, 0, -0.767916, -214.783 )
 
 [node name="Player" parent="PlayerWithCamera" index="0"]
 move_forward_speed = 30.0
@@ -382,11 +397,56 @@ transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.0947
 [node name="Barriere12" parent="." instance=ExtResource( 8 )]
 transform = Transform( -4.37114e-08, 0, 1, 0, 1, 0, -1, 0, -4.37114e-08, -9.09474, -0.141776, -52.7937 )
 
+[node name="DirectionalLight" type="DirectionalLight" parent="."]
+transform = Transform( 0.766772, -0.17065, 0.618821, -0.619211, -0.450771, 0.642949, 0.169227, -0.876176, -0.451307, 0, 0, 0 )
+light_energy = 0.5
+light_indirect_energy = 0.0
+light_specular = 0.0
+shadow_enabled = true
+shadow_color = Color( 0.678431, 0.635294, 0.635294, 1 )
+shadow_bias = 0.0
+directional_shadow_mode = 0
+directional_shadow_normal_bias = 0.0
+directional_shadow_bias_split_scale = 0.233
+directional_shadow_max_distance = 166.2
+
+[node name="HUD" type="Control" parent="."]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_right = 2.0
+margin_bottom = 5.0
+
+[node name="VBoxContainer" type="VBoxContainer" parent="HUD"]
+anchor_right = 1.0
+anchor_bottom = 1.0
+margin_left = 170.0
+margin_top = 1.0
+margin_right = -157.0
+margin_bottom = -34.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="Help" type="Label" parent="HUD/VBoxContainer"]
+margin_right = 395.0
+margin_bottom = 25.0
+custom_fonts/font = SubResource( 1 )
+text = "Reach the finish line before the radish!"
+align = 1
+
+[node name="Meters" type="Label" parent="HUD/VBoxContainer"]
+margin_top = 29.0
+margin_right = 395.0
+margin_bottom = 54.0
+custom_colors/font_color = Color( 0.901961, 0.901961, 0.901961, 1 )
+custom_fonts/font = SubResource( 2 )
+text = "20 Meters"
+align = 1
+valign = 1
+
+[connection signal="finished" from="PlayerWithCamera/Player" to="." method="_on_Player_finished"]
 [connection signal="OneDone" from="Control" to="Radish" method="_on_Control_OneDone"]
 [connection signal="StartDone" from="Control" to="PlayerWithCamera/Player" method="_on_Control_StartDone"]
 
 [editable path="PlayerWithCamera"]
 [editable path="PlayerWithCamera/Player"]
 [editable path="PlayerWithCamera/Player/Mesh"]
-[editable path="PlayerWithCamera/Player/Effet_roue"]
-[editable path="PlayerWithCamera/Player/Effet_roue2"]
