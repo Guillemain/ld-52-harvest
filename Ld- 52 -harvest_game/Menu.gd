@@ -15,6 +15,24 @@ func _ready():
 #func _process(delta):
 #	pass
 
+func _on_LvlTuto_pressed():
+	get_tree().change_scene("res://Elements/Levels/Level_Tuto.tscn")
 
-func _on_LevelButton_pressed():
-	get_tree().change_scene("res://Elements/Levels/Level1.tscn")
+
+func _on_Lvl2_pressed():
+	get_tree().change_scene("res://Elements/Levels/Level_Aune.tscn")
+
+
+func _on_LevelButton3_pressed():
+	get_tree().change_scene("res://Elements/Levels/lvl_adab.tscn")
+
+
+func _on_TextureButton_pressed():
+	$MainMenu.visible = true
+	$Credit.visible = false
+	
+
+
+func _on_Credit_pressed():
+	$MainMenu.visible = false
+	$Credit.visible = true
