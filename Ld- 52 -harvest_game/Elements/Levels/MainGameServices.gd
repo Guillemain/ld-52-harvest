@@ -10,6 +10,12 @@ var simple_counter = 0.0
 func _ready():
 	radish = $Radish
 	player = $PlayerWithCamera/Player
+
+func _process(delta):
+	if(Input.is_action_just_pressed("replay")):
+		get_tree().reload_current_scene()
+		
+
 func _physics_process(delta):
 	var score = -(radish.global_translation.z - player.global_translation.z)
 	simple_counter += delta

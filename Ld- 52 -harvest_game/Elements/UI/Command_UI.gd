@@ -11,7 +11,7 @@ func _ready():
 	pass # Replace with function body.
 
 func _on_Replay_pressed():
-	get_tree().change_scene("res://Elements/Levels/Level1.tscn")
+	get_tree().reload_current_scene()
 	
 
 

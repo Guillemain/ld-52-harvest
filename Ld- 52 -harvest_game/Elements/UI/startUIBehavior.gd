@@ -20,13 +20,13 @@ func _ready():
 	currentText = numberText
 
 func _process(delta):
-	if total_time < 0.35 and appearing:
-		scale.x = total_time / 0.35
-		scale.y = total_time / 0.35
+	if total_time < 0.1 and appearing:
+		scale.x = total_time / 0.1
+		scale.y = total_time / 0.1
 		currentText.rect_scale = scale
-	elif total_time < 0.35 and !appearing:
-		scale.x = 1 - (total_time / 0.35)
-		scale.y = 1 - (total_time / 0.35)
+	elif total_time < 0.1 and !appearing:
+		scale.x = 1 - (total_time / 0.1)
+		scale.y = 1 - (total_time / 0.1)
 		currentText.rect_scale = scale
 	else:
 		if !appearing:
@@ -38,7 +38,7 @@ func _process(delta):
 		currentText.rect_scale = scale
 		if timer.is_stopped():
 			if state == 0:
-				timer.wait_time = 0.5
+				timer.wait_time = 0.2
 			timer.start()
 	total_time += delta
 
