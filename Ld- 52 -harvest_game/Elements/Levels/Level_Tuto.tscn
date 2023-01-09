@@ -382,15 +382,15 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 
 [node name="Help" type="Label" parent="HUD/VBoxContainer"]
-margin_right = 475.0
+margin_right = 605.0
 margin_bottom = 25.0
 custom_fonts/font = SubResource( 1 )
-text = "Reach the finish line before the radish!"
+text = "Reach the finish line before the radish! (press r to restart)"
 align = 1
 
 [node name="Meters" type="Label" parent="HUD/VBoxContainer"]
 margin_top = 29.0
-margin_right = 475.0
+margin_right = 605.0
 margin_bottom = 64.0
 custom_colors/font_color = Color( 0.901961, 0.901961, 0.901961, 1 )
 custom_fonts/font = SubResource( 2 )
