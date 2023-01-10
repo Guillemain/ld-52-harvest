@@ -10,7 +10,7 @@ var x_dir = 0
 
 
 ## Effect 
-var impact_particule := preload("res://Elements/FX/ImpactEffect.tscn")
+const impact_particule := preload("res://Elements/FX/ImpactEffect.tscn")
 
 func _ready():
 	rng.randomize()

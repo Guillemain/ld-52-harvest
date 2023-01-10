@@ -19,9 +19,9 @@ colors = PoolColorArray( 1, 0, 0.74902, 0, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=5]
 gradient = SubResource( 10 )
+width = 256
 
 [sub_resource type="ParticlesMaterial" id=2]
-lifetime_randomness = 0.25
 emission_shape = 1
 emission_sphere_radius = 0.1
 direction = Vector3( 0, 10, -5 )
@@ -57,6 +57,7 @@ colors = PoolColorArray( 1, 0, 0.74902, 1, 1, 1, 1, 1, 1, 1, 1, 0 )
 
 [sub_resource type="GradientTexture" id=12]
 gradient = SubResource( 11 )
+width = 256
 
 [sub_resource type="Curve" id=7]
 _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -0.356801, 0.0, 0, 0 ]
@@ -65,7 +66,6 @@ _data = [ Vector2( 0, 1 ), 0.0, 0.0, 0, 0, Vector2( 1, 0 ), -0.356801, 0.0, 0, 0
 curve = SubResource( 7 )
 
 [sub_resource type="ParticlesMaterial" id=9]
-lifetime_randomness = 0.25
 direction = Vector3( 0, 0, -1 )
 spread = 1.0
 gravity = Vector3( 0, 0, 0 )
@@ -94,6 +94,5 @@ transform = Transform( 1, 0, 0, 0, 0.889097, -0.457719, 0, 0.457719, 0.889097, 0
 material_override = SubResource( 6 )
 emitting = false
 amount = 50
-lifetime = 0.52
 process_material = SubResource( 9 )
 draw_pass_1 = SubResource( 3 )
